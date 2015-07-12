@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe "Viewing an individual event" do
   it "shows the event's details" do
     event = Event.create(event_attributes(price: 10.00))
