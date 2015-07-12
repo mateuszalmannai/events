@@ -2,11 +2,7 @@ require 'rails_helper'
 
 describe "Viewing an individual event" do
   it "shows the event's details" do
-    event = Event.create(name: "Bugsmash",
-                         location: "Denver",
-                         price: 10.00,
-                         description: 'Fun evening of bug smashing!',
-                         starts_at: 10.days.from_now)
+    event = Event.create(event_attributes(price: 10.00))
 
     visit event_url(event)
 
