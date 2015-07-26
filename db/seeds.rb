@@ -8,23 +8,40 @@
 Event.create!([
   {
     name: 'BugSmash',
-    location: 'Denver',
+    location: 'Wynkoop in LoDo, Denver, CO',
     price: 0.00,
-    description: 'A fun evening of bug smashing!',
-    starts_at: 10.days.from_now
+    starts_at: 100.days.from_now,
+    description: %{
+      Join us for a fun evening of bug smashing! It's a great
+      way to get involved in open source projects whether you're
+      reporting bugs, fixing bugs, or even inadvertently creating
+      a few bugs!
+    }
   },
   {
     name: 'Hackathon',
-    location: 'Austin',
+    location: 'Buffalo Billiards, Austin, TX',
     price: 15.00,
-    description: 'Hunker down at the Hackathon!',
-    starts_at: 15.days.from_now
+    starts_at: 120.days.from_now,
+    description: %{
+      Got a killer app idea you've been itching to work on? Hunker
+      down at the Hackathon! This is an intense, focused day of hacking
+      on anything you want. The entry fee goes toward a bounty of cash•
+      and prizes for winners in a variety of categories.
+    }
   },
   {
     name: 'Kata Camp',
-    location: 'Dallas',
+    location: 'Double R Ranch, Dallas, TX',
     price: 75.00,
-    description: 'Practice your craft kata style!',
-    starts_at: 30.days.from_now
+    starts_at: 150.days.from_now,
+    description: %{
+      Kata Camp is where developers go to practice their craft without
+      the interruptions of a typical project. Forget about having to
+      actually ship something. Tell your manager you're going to
+      Kata Camp for the day! Price includes a buffet lunch and a
+      leather-bound journal to record your kata achievements.
+    }
   }
 ])
+
