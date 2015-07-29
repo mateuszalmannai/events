@@ -10,6 +10,14 @@ describe "Editing an event" do
     expect(current_path).to eq(edit_event_path(event))
 
     expect(find_field('event_name').value).to eq(event.name)
+
+    fill_in "Name", with: "Updated Event Name"
+
+    click_button "Update Event"
+
+    expect(current_path).to eq(event_path(event))
+
+    expect(page).to have_text("Updated Event Name")
   end
 
 end
