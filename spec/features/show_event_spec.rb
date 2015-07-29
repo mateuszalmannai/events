@@ -6,6 +6,7 @@ describe "Viewing an individual event" do
 
     expect(page).to have_text(event.name)
     expect(page).to have_text(event.location)
+    expect(page).to have_text("$10.00")
     expect(page).to have_text(event.description)
     expect(page).to have_text(event.starts_at)
   end
