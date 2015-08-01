@@ -1,11 +1,7 @@
 describe "Editing an event" do
 
   it "updates the event and shows the event's updated details" do
-    event = Event.create(event_attributes)
-
-    visit event_url(event)
-
-    click_link 'Edit'
+    event = setup_event_to_edit
 
     expect(current_path).to eq(edit_event_path(event))
 
@@ -20,4 +16,31 @@ describe "Editing an event" do
     expect(page).to have_text("Updated Event Name")
   end
 
+  it "does not update the event and goes to listing page when 'Cancel' is pressed" do
+    event = setup_event_to_edit
+
+    expect(current_path).to eq(edit_event_path(event))
+
+    expect(find_field('event_name').value).to eq(event.name)
+
+    fill_in "Name", with: "Updated Event Name"
+
+    click_link "Cancel"
+
+    expect(current_path).to eq(events_path)
+
+    expect(page).to_not have_text('Updated Event Name')
+  end
 end
+
+private
+def setup_event_to_edit
+  event = Event.create(event_attributes)
+
+  visit event_url(event)
+
+  click_link 'Edit'
+  event
+end
+
+
