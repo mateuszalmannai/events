@@ -31,6 +31,11 @@ describe "Editing an event" do
 
     expect(page).to_not have_text('Updated Event Name')
   end
+
+  it "displays the footer partial" do
+    setup_new_event
+    expect(page).to have_text("The Pragmatic Studio")
+  end
 end
 
 private

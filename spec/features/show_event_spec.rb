@@ -25,4 +25,9 @@ describe "Viewing an individual event" do
 
     expect(page).to have_text("Free")
   end
+
+  it "displays the footer partial" do
+    setup_new_event
+    expect(page).to have_text("The Pragmatic Studio")
+  end
 end

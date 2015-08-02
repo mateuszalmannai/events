@@ -1,5 +1,3 @@
-require "rails_helper"
-
 describe "Viewing the list of events" do
   it "shows the event" do
     # 1. ARRANGE
@@ -36,4 +34,10 @@ describe "Viewing the list of events" do
     expect(page).to have_text(event1.starts_at)
     expect(page).to have_text("$10.00")
   end
+
+  it "displays the footer partial" do
+    setup_new_event
+    expect(page).to have_text("The Pragmatic Studio")
+  end
+
 end
