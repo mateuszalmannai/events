@@ -36,8 +36,20 @@ describe "Viewing the list of events" do
   end
 
   it "displays the footer partial" do
-    setup_new_event
+    event = Event.new(event_attributes)
+
+    visit events_url
+
     expect(page).to have_text("The Pragmatic Studio")
   end
 
+  it "does not show an event that starts in the past" do
+    event = Event.new(event_attributes)
+    event.starts_at = 1.day.ago
+    event.save
+
+    visit events_path
+
+    expect(page).not_to have_text(event.name)
+  end
 end
