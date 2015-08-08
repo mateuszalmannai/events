@@ -40,6 +40,9 @@ def setup_new_event
   fill_in "event_location", with: "Denver, CO"
   fill_in "event_price", with: "10.00"
   select (Time.now.year + 1).to_s, :from => "event_starts_at_1i" # must be in future
+  fill_in "event_capacity", with: "75"
+  fill_in "event_image_file_name", with: "event.png"
+
 end
 
 
