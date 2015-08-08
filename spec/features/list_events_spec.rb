@@ -33,6 +33,8 @@ describe "Viewing the list of events" do
     expect(page).to have_text(event1.description[0..10])
     expect(page).to have_text(event1.starts_at)
     expect(page).to have_text("$10.00")
+    expect(page).to have_text(event1.capacity)
+    expect(page).to have_selector(("img[src$='#{event1.image_file_name}']"))
   end
 
   it "displays the footer partial" do

@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   # class level method is defined on 'self'
   def self.upcoming
     # the event object, i.e. the Event class object is the
-    # implicit receiver of this method 
+    # implicit receiver of this method
     where("starts_at >= ?", Time.now).order("starts_at")
   end
 end
