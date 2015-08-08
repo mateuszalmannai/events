@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe "Deleting an event" do 
+describe "Deleting an event" do
   it "destroys the event and shows the event listing" do
     event = Event.create(event_attributes)
     

@@ -27,7 +27,10 @@ describe "Viewing an individual event" do
   end
 
   it "displays the footer partial" do
-    setup_new_event
+    event = Event.create(event_attributes(price: 10.00))
+
+    visit event_url(event)
+
     expect(page).to have_text("The Pragmatic Studio")
   end
 end
