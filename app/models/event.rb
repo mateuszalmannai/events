@@ -1,12 +1,15 @@
 class Event < ActiveRecord::Base
+  
+  def self.upcoming
+    where('starts_at >= ?', Time.now).order(:starts_at)
+  end
+  
+  def self.inexpensive
+    where('price <= 15').order('price DESC')
+  end
+    
   def free?
     price.blank? || price.zero?
-  end
+  end  
 
-  # class level method is defined on 'self'
-  def self.upcoming
-    # the event object, i.e. the Event class object is the
-    # implicit receiver of this method
-    where("starts_at >= ?", Time.now).order("starts_at")
-  end
 end
