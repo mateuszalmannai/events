@@ -32,6 +32,19 @@ describe "Editing an event" do
     expect(page).to_not have_text('Updated Event Name')
   end
 
+  it "does not update the event if it's invalid" do
+    event = Event.create(event_attributes)
+
+    visit edit_event_url(event)
+
+    fill_in 'Name', with: " "
+
+    click_button 'Update Event'
+
+    expect(page).to have_text('error')
+  end
+
+
   it "displays the footer partial" do
     setup_new_event
     expect(page).to have_text("The Pragmatic Studio")

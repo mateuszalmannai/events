@@ -20,6 +20,16 @@ describe 'Creating a new event' do
     expect(page).to_not have_text('New Event Name')
   end
 
+  it "does not save the event if it's invalid" do
+    visit new_event_url
+
+    expect {
+      click_button 'Create Event'
+    }.not_to change(Event, :count)
+
+    expect(page).to have_text('error')
+  end
+
   it "displays the footer partial" do
     setup_new_event
     expect(page).to have_text("The Pragmatic Studio")
