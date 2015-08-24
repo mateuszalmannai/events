@@ -8,6 +8,7 @@ describe 'Creating a new event' do
     expect(current_path).to eq(event_path(Event.last))
 
     expect(page).to have_text('New Event Name')
+    expect(page).to have_text('Event successfully created!')
   end
 
   it "doesn't save the event and goes to listing page when 'Cancel' is pressed" do
