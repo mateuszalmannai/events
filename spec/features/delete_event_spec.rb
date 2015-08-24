@@ -8,5 +8,6 @@ describe "Deleting an event" do
     
     expect(current_path).to eq(events_path)
     expect(page).not_to have_text(event.name)
+    expect(page).to have_text("Event successfully deleted!")
   end
 end
